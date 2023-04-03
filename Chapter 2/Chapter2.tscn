@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://kbsgvkgk65tb"]
+
+[ext_resource type="Script" path="res://node_3d.gd" id="1_fmfcu"]
+
+[node name="Node2d" type="Node2D"]
+script = ExtResource("1_fmfcu")
+weather = 0
+
+[node name="Camera2d" type="Camera2D" parent="."]

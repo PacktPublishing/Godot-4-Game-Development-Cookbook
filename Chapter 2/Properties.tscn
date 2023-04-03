@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bump5j0jga1go"]
+
+[ext_resource type="Script" path="res://Properties.gd" id="1_xv5wc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 70.0
+offset_top = 48.0
+offset_right = 478.0
+offset_bottom = 260.0
+script = ExtResource("1_xv5wc")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

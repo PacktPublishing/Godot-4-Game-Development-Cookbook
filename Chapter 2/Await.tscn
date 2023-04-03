@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2lupa8kl8aai"]
+
+[ext_resource type="Script" path="res://Await.gd" id="1_n2jyb"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_n2jyb")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 168.0
+offset_right = 681.0
+offset_bottom = 343.0
