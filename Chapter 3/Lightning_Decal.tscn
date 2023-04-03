@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmcpg5hed67fa"]
+
+[ext_resource type="Texture2D" uid="uid://cxfbqrgejx61j" path="res://spark_05.png" id="1_clyvr"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(0.161001, 0, 0, 0, -2.18557e-08, -0.243528, 0, 0.5, -1.0645e-08, 0, 0, 0)
+size = Vector3(1, 0.356186, 0.47097)
+texture_albedo = ExtResource("1_clyvr")
+texture_normal = ExtResource("1_clyvr")
+texture_emission = ExtResource("1_clyvr")

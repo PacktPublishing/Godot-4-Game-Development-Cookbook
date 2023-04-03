@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu7vkkb8a1od0"]
+
+[ext_resource type="Texture2D" uid="uid://dydmxr6k4pqmb" path="res://smoke_07.png" id="1_koguv"]
+[ext_resource type="Texture2D" uid="uid://cxfbqrgejx61j" path="res://spark_05.png" id="2_hyud5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3pfxs"]
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 150.0
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+color = Color(0.996078, 0.976471, 0.945098, 1)
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 20
+sub_emitter_keep_velocity = true
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_25b8q"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 500, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Cloud" type="GPUParticles2D" parent="."]
+amount = 100
+sub_emitter = NodePath("Lightning")
+process_material = SubResource("ParticleProcessMaterial_3pfxs")
+texture = ExtResource("1_koguv")
+randomness = 0.5
+
+[node name="Lightning" type="GPUParticles2D" parent="Cloud"]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_25b8q")
+texture = ExtResource("2_hyud5")
+lifetime = 2.0
+speed_scale = 3.0
+trail_enabled = true
+trail_lifetime = 4.0

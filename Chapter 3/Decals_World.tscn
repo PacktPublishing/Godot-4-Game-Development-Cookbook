@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://rc47bwyw7tn1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_kpghi"]
+[ext_resource type="Script" path="res://free_look_camera.gd" id="1_ne15o"]
+[ext_resource type="PackedScene" uid="uid://bmcpg5hed67fa" path="res://Lightning_Decal.tscn" id="3_uctfy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dgojt"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5qn5l"]
+sky_material = SubResource("ProceduralSkyMaterial_dgojt")
+
+[sub_resource type="Environment" id="Environment_trc8d"]
+background_mode = 2
+sky = SubResource("Sky_5qn5l")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xvcgp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy07n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_erylj"]
+material = SubResource("StandardMaterial3D_gy07n")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fbnkt"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.884974, -0.392837, 0.250001, 0.0229342, 0.499472, 0.866026, -0.465076, 0.772144, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_trc8d")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xvcgp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11395, 5.22461)
+script = ExtResource("1_ne15o")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -20)
+script = ExtResource("1_kpghi")
+decal = ExtResource("3_uctfy")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 5, 0, 0, 0, 2, 0, 2.46, -5)
+mesh = SubResource("BoxMesh_erylj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fbnkt")

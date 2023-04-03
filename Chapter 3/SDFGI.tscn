@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2yqr7yqtj80e"]
+
+[ext_resource type="PackedScene" uid="uid://dw7qyeu076c8y" path="res://Ship Pinnace/ship_pinnace_4k.gltf" id="1_3iw8t"]
+[ext_resource type="Script" path="res://free_look_camera.gd" id="1_mg06k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2k8b4"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0kqiw"]
+sky_material = SubResource("ProceduralSkyMaterial_2k8b4")
+
+[sub_resource type="Environment" id="Environment_b1b0j"]
+background_mode = 2
+sky = SubResource("Sky_0kqiw")
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xalk7"]
+metallic = 1.0
+roughness = 0.0
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_twk8p"]
+material = SubResource("StandardMaterial3D_xalk7")
+
+[sub_resource type="FogMaterial" id="FogMaterial_fpii5"]
+height_falloff = 92065.3
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 210, 660, -265)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b1b0j")
+
+[node name="ship_pinnace_4k" parent="." instance=ExtResource("1_3iw8t")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.969398, 0, -0.245493, 0, 1, 0, 0.245493, 0, -0.969398, -2.22378, 3.74924, -1.95415)
+script = ExtResource("1_mg06k")
+
+[node name="Orb" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03464, 3.59474, 2.68687)
+mesh = SubResource("SphereMesh_twk8p")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0894865, 3.8694, -0.718142)
+size = Vector3(4, 4, 4)
+material = SubResource("FogMaterial_fpii5")

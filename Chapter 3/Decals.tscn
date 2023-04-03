@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvbqut1mjvreo"]
+
+[ext_resource type="Texture2D" uid="uid://dwm6hm6tdxpc8" path="res://icon.svg" id="1_gmlh1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k0rr6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Decal" type="Decal" parent="."]
+texture_albedo = ExtResource("1_gmlh1")
+texture_normal = ExtResource("1_gmlh1")
+texture_orm = ExtResource("1_gmlh1")
+texture_emission = ExtResource("1_gmlh1")
+distance_fade_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_k0rr6")

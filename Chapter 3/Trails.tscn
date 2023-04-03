@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://uogasb51r5gn"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7n5nq"]
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dexdk"]
+use_particle_trails = true
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_1t8af"]
+material = SubResource("StandardMaterial3D_dexdk")
+radius = 0.1
+section_length = 0.1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0617933, 0)
+amount = 50
+lifetime = 5.0
+trail_enabled = true
+trail_lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_7n5nq")
+draw_pass_1 = SubResource("TubeTrailMesh_1t8af")
