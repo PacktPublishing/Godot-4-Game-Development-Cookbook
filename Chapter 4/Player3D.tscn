@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cslv84que7sgr"]
+
+[ext_resource type="Script" path="res://Player3D.gd" id="1_yvu62"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jaexv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_co6rc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hg6rn"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_yvu62")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_jaexv")
+
+[node name="Gun" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.229596, 0, 0, 0, 0.260087, 0, 0, 0, 1.31907, 0.59571, 0.000956357, -0.643139)
+mesh = SubResource("BoxMesh_co6rc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_hg6rn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.73888)

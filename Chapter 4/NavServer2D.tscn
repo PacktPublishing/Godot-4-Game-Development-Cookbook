@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvg4pa3abxaue"]
+
+[ext_resource type="Texture2D" uid="uid://p4ycl74k50jr" path="res://icon.svg" id="1_eevxc"]
+[ext_resource type="Script" path="res://Nav2D.gd" id="2_csv7t"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r4bsf"]
+vertices = PackedVector2Array(2, 0, 417, 5, 347, 67, 99, 68, 414, 293, 342, 221, 1, 639, 98, 225, 1145, -7, 1152, 646, 1067, 608, 1064, 331, 874, 325, 872, 614, 603, 532, 601, 370, 941, -3, 941, 290, 99, 373, 100, 530)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 8, 11, 17), PackedInt32Array(17, 11, 12, 4), PackedInt32Array(4, 12, 15, 18), PackedInt32Array(5, 4, 18, 7), PackedInt32Array(6, 7, 18, 19), PackedInt32Array(9, 6, 19, 13), PackedInt32Array(13, 10, 9), PackedInt32Array(13, 19, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, 0, 1, 639, 1152, 646, 1145, -7, 941, -3, 941, 290, 414, 293, 417, 5), PackedVector2Array(874, 325, 872, 614, 1067, 608, 1064, 331), PackedVector2Array(99, 68, 98, 225, 342, 221, 347, 67), PackedVector2Array(99, 373, 601, 370, 603, 532, 100, 530)])
+
+[sub_resource type="BoxMesh" id="BoxMesh_8sd3j"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxei2"]
+size = Vector2(130.857, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkhoq"]
+size = Vector2(128.546, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00iab"]
+size = Vector2(125.239, 123.124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p5pg"]
+size = Vector2(123.346, 127.041)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hh47h"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_r4bsf")
+
+[node name="Background" type="MeshInstance2D" parent="NavigationRegion2D"]
+position = Vector2(600, 340)
+scale = Vector2(12, 7)
+mesh = SubResource("BoxMesh_8sd3j")
+
+[node name="Wall" type="Sprite2D" parent="NavigationRegion2D"]
+position = Vector2(219, 142)
+scale = Vector2(1.75, 1)
+texture = ExtResource("1_eevxc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Wall/StaticBody2D"]
+position = Vector2(0.285713, 3)
+shape = SubResource("RectangleShape2D_pxei2")
+
+[node name="Wall2" type="Sprite2D" parent="NavigationRegion2D"]
+position = Vector2(346.5, 446)
+scale = Vector2(3.66406, 1)
+texture = ExtResource("1_eevxc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Wall2/StaticBody2D"]
+position = Vector2(0.272919, 3.5)
+shape = SubResource("RectangleShape2D_xkhoq")
+
+[node name="Wall3" type="Sprite2D" parent="NavigationRegion2D"]
+position = Vector2(680, 143)
+scale = Vector2(3.98438, 2.28125)
+texture = ExtResource("1_eevxc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Wall3/StaticBody2D"]
+position = Vector2(-0.125488, 0)
+shape = SubResource("RectangleShape2D_00iab")
+
+[node name="Wall4" type="Sprite2D" parent="NavigationRegion2D"]
+position = Vector2(970, 471)
+scale = Vector2(1.28906, 2.08594)
+texture = ExtResource("1_eevxc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Wall4/StaticBody2D"]
+position = Vector2(1.16364, -1.1985)
+shape = SubResource("RectangleShape2D_2p5pg")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(13, 18)
+script = ExtResource("2_csv7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.164062, 0.21875)
+texture = ExtResource("1_eevxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_hh47h")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
