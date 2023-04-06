@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1q31uw84ju5v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_egeij"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_sof5a"]
+sky_material = SubResource("ProceduralSkyMaterial_egeij")
+
+[sub_resource type="Environment" id="Environment_hiocb"]
+background_mode = 2
+sky = SubResource("Sky_sof5a")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_c251s"]
+constant = Color(0.396078, 1, 0.223529, 1)
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_vpt8o"]
+constant = 2.0
+
+[sub_resource type="VisualShader" id="VisualShader_mpqlp"]
+code = "shader_type fog;
+
+
+
+void fog() {
+// FloatConstant:3
+	float n_out3p0 = 2.000000;
+
+
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(0.396078, 1.000000, 0.223529, 1.000000);
+
+
+// Output:0
+	DENSITY = n_out3p0;
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(96, 45)
+mode = 4
+nodes/fog/2/node = SubResource("VisualShaderNodeColorConstant_c251s")
+nodes/fog/2/position = Vector2(80, 220)
+nodes/fog/3/node = SubResource("VisualShaderNodeFloatConstant_vpt8o")
+nodes/fog/3/position = Vector2(80, 120)
+nodes/fog/connections = PackedInt32Array(2, 0, 0, 1, 3, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urvry"]
+shader = SubResource("VisualShader_mpqlp")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hiocb")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+material = SubResource("ShaderMaterial_urvry")

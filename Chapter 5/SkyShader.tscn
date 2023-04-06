@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cegdqbrixu2rq"]
+
+[ext_resource type="Shader" uid="uid://ctvdijr2gcmf0" path="res://SkyShader.tres" id="1_yvl8n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2km0f"]
+shader = ExtResource("1_yvl8n")
+
+[sub_resource type="Sky" id="Sky_dfbd3"]
+sky_material = SubResource("ShaderMaterial_2km0f")
+
+[sub_resource type="Environment" id="Environment_ttiha"]
+background_mode = 2
+sky = SubResource("Sky_dfbd3")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ttiha")

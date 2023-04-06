@@ -1,0 +1,41 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://cc8pcfsxmmtb2"]
+
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_iq3s0"]
+output_port_for_preview = 0
+default_input_values = [0, Vector3(0, 1, 0), 1, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeVec3Parameter" id="VisualShaderNodeVec3Parameter_0o2qh"]
+parameter_name = "Vector3Parameter"
+qualifier = 2
+default_value_enabled = true
+default_value = Vector3(1, 0, 0)
+
+[resource]
+code = "shader_type spatial;
+instance uniform vec3 Vector3Parameter = vec3(1.000000, 0.000000, 0.000000);
+
+
+
+void fragment() {
+// Vector3Parameter:3
+	vec3 n_out3p0 = Vector3Parameter;
+
+
+// ColorOp:2
+	vec3 n_in2p0 = vec3(0.00000, 1.00000, 0.00000);
+	vec3 n_out2p0 = vec3(1.0) - (vec3(1.0) - n_in2p0) * (vec3(1.0) - n_out3p0);
+
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+
+}
+"
+graph_offset = Vector2(-476.203, 170.094)
+nodes/fragment/0/position = Vector2(400, 160)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorOp_iq3s0")
+nodes/fragment/2/position = Vector2(-400, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVec3Parameter_0o2qh")
+nodes/fragment/3/position = Vector2(-880, 240)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 2, 1)

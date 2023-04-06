@@ -1,0 +1,43 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://dyo7ljb7yrjkx"]
+
+[ext_resource type="Texture2D" uid="uid://bwy633ws22kxb" path="res://icon.svg" id="1_dto25"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_1bor6"]
+source = 2
+texture = ExtResource("1_dto25")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_i7xkg"]
+default_input_values = [1, Vector2(0.5, 0.5), 2, Vector2(0.25, 0.25)]
+function = 1
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void fragment() {
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.50000, 0.50000);
+	vec2 n_in3p2 = vec2(0.25000, 0.25000);
+	vec2 n_out3p0 = (UV - n_in3p2) * n_in3p1 + n_in3p2;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(TEXTURE, n_out3p0);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-672.718, 76.9048)
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_1bor6")
+nodes/fragment/2/position = Vector2(100, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_i7xkg")
+nodes/fragment/3/position = Vector2(-200, 160)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 2, 0)

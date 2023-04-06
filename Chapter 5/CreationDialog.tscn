@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtjiarsik7mm1"]
+
+[ext_resource type="Shader" path="res://Recipe3.gdshader" id="1_1p81q"]
+[ext_resource type="Script" path="res://Recipe3.gd" id="1_4v56i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2o182"]
+render_priority = 0
+shader = ExtResource("1_1p81q")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dcbdf"]
+material = SubResource("ShaderMaterial_2o182")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4v56i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_dcbdf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)

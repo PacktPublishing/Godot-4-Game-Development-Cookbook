@@ -1,0 +1,97 @@
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://bmesy5tbx25g1"]
+
+[sub_resource type="VisualShaderNodeComment" id="VisualShaderNodeComment_cy3xj"]
+size = Vector2(931.4, 548.2)
+description = "Three int values going into VectorCompose then to Albedo"
+
+[sub_resource type="VisualShaderNodeIntConstant" id="VisualShaderNodeIntConstant_2piwf"]
+constant = 1
+
+[sub_resource type="VisualShaderNodeIntOp" id="VisualShaderNodeIntOp_1jvb3"]
+default_input_values = [0, 0, 1, 1]
+
+[sub_resource type="VisualShaderNodeIntFunc" id="VisualShaderNodeIntFunc_plfl5"]
+function = 0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_avmht"]
+
+[sub_resource type="VisualShaderNodeIntConstant" id="VisualShaderNodeIntConstant_o04ld"]
+constant = 1
+
+[sub_resource type="VisualShaderNodeIntConstant" id="VisualShaderNodeIntConstant_st4do"]
+constant = 1
+
+[sub_resource type="VisualShaderNodeIntOp" id="VisualShaderNodeIntOp_yipaf"]
+default_input_values = [0, 0, 1, 1]
+operator = 1
+
+[sub_resource type="VisualShaderNodeIntFunc" id="VisualShaderNodeIntFunc_cqymt"]
+function = 0
+
+[resource]
+code = "shader_type spatial;
+
+
+
+void fragment() {
+// IntConstant:2
+	int n_out2p0 = 1;
+
+
+// IntFunc:4
+	int n_out4p0 = abs(n_out2p0);
+
+
+// IntOp:3
+	int n_in3p0 = 0;
+	int n_out3p0 = n_in3p0 + n_out4p0;
+
+
+// IntConstant:6
+	int n_out6p0 = 1;
+
+
+// IntFunc:9
+	int n_out9p0 = abs(n_out6p0);
+
+
+// IntConstant:7
+	int n_out7p0 = 1;
+
+
+// IntOp:8
+	int n_in8p0 = 0;
+	int n_out8p0 = n_in8p0 - n_out7p0;
+
+
+// VectorCompose:5
+	vec3 n_out5p0 = vec3(float(n_out3p0), float(n_out9p0), float(n_out8p0));
+
+
+// Output:0
+	ALBEDO = n_out5p0;
+
+
+}
+"
+graph_offset = Vector2(-622.687, -50.8146)
+nodes/fragment/0/position = Vector2(360, 160)
+nodes/fragment/2/node = SubResource("VisualShaderNodeIntConstant_2piwf")
+nodes/fragment/2/position = Vector2(-680, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeIntOp_1jvb3")
+nodes/fragment/3/position = Vector2(-260, 120)
+nodes/fragment/4/node = SubResource("VisualShaderNodeIntFunc_plfl5")
+nodes/fragment/4/position = Vector2(-500, 140)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorCompose_avmht")
+nodes/fragment/5/position = Vector2(-40, 260)
+nodes/fragment/6/node = SubResource("VisualShaderNodeIntConstant_o04ld")
+nodes/fragment/6/position = Vector2(-680, 260)
+nodes/fragment/7/node = SubResource("VisualShaderNodeIntConstant_st4do")
+nodes/fragment/7/position = Vector2(-680, 380)
+nodes/fragment/8/node = SubResource("VisualShaderNodeIntOp_yipaf")
+nodes/fragment/8/position = Vector2(-320, 400)
+nodes/fragment/9/node = SubResource("VisualShaderNodeIntFunc_cqymt")
+nodes/fragment/9/position = Vector2(-440, 280)
+nodes/fragment/10/node = SubResource("VisualShaderNodeComment_cy3xj")
+nodes/fragment/10/position = Vector2(-760, 60)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 4, 0, 3, 1, 7, 0, 8, 1, 6, 0, 9, 0, 9, 0, 5, 1, 5, 0, 0, 0, 3, 0, 5, 0, 8, 0, 5, 2)

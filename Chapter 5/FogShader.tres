@@ -1,0 +1,11 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bi316xh72b4hk"]
+
+[resource]
+code = "shader_type fog;
+
+
+
+void fog() {
+}
+"
+mode = 4
