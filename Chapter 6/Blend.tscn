@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvwy3o1s2tvxg"]
+
+[ext_resource type="PackedScene" uid="uid://buddon3o7ghop" path="res://Models_G0402A160/LeftyJ_Truck.blend" id="1_106ad"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="LeftyJ_Truck" parent="." instance=ExtResource("1_106ad")]

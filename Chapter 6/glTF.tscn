@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clwy1c7i1vnjh"]
+
+[ext_resource type="PackedScene" uid="uid://cf1rrtsneau6v" path="res://wooden_table_02_4k.gltf" id="1_6o8l4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="wooden_table_02_4k" parent="." instance=ExtResource("1_6o8l4")]

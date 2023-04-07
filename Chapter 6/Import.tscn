@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvclj8jcsp525"]
+
+[ext_resource type="PackedScene" uid="uid://bv0260j16ktqc" path="res://wooden_crate_01_4k.gltf" id="1_rbytl"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="wooden_crate_01_4k" parent="." instance=ExtResource("1_rbytl")]
