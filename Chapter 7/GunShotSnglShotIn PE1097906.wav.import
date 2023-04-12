@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmdjlfcq2urta"
+path="res://.godot/imported/GunShotSnglShotIn PE1097906.wav-3cadf01b55f40593e35f6c9fd5c3a145.sample"
+
+[deps]
+
+source_file="res://GunShotSnglShotIn PE1097906.wav"
+dest_files=["res://.godot/imported/GunShotSnglShotIn PE1097906.wav-3cadf01b55f40593e35f6c9fd5c3a145.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

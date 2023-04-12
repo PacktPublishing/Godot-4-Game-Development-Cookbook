@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://r8xsoumyh5fm"]
+
+[ext_resource type="Texture2D" uid="uid://bwc1gcvmgm7wu" path="res://icon.svg" id="1_r5nhd"]
+[ext_resource type="AudioStream" uid="uid://b3ro87beq3kli" path="res://soft-rain-ambient-111154.mp3" id="1_sgull"]
+[ext_resource type="Script" path="res://Player.gd" id="2_iekrt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g60d6"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6lsuy"]
+size = Vector3(50, 50, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmt3w"]
+size = Vector2(64, 65)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="MeshInstance2D" parent="."]
+position = Vector2(600, 340)
+scale = Vector2(12, 7)
+mesh = SubResource("BoxMesh_g60d6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1100, 40)
+mesh = SubResource("BoxMesh_6lsuy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MeshInstance2D"]
+position = Vector2(1100, 40)
+stream = ExtResource("1_sgull")
+autoplay = true
+max_distance = 1900.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_iekrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(85, 600)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_r5nhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(85, 602)
+shape = SubResource("RectangleShape2D_bmt3w")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="CharacterBody2D"]
+current = true

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ersuohn5bup"]
+
+[ext_resource type="AudioStream" uid="uid://b3ro87beq3kli" path="res://soft-rain-ambient-111154.mp3" id="1_5355h"]
+[ext_resource type="Script" path="res://Gunshot.gd" id="2_ae3wu"]
+[ext_resource type="AudioStream" uid="uid://dmdjlfcq2urta" path="res://GunShotSnglShotIn PE1097906.wav" id="3_t0us8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hldap"]
+size = Vector3(100, 100, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5355h")
+autoplay = true
+
+[node name="Background" type="MeshInstance2D" parent="."]
+position = Vector2(600, 340)
+scale = Vector2(12, 7)
+mesh = SubResource("BoxMesh_hldap")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 108.0
+offset_top = 87.0
+offset_right = 320.0
+offset_bottom = 194.0
+text = "Gun Shot"
+script = ExtResource("2_ae3wu")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t0us8")
+max_polyphony = 10
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
