@@ -1,0 +1,40 @@
+[remap]
+
+importer="animation_library"
+importer_version=1
+type="AnimationLibrary"
+uid="uid://bee7jayn47jh6"
+path="res://.godot/imported/rp_nathan_animated_003_walking.fbx-a905823113b4a9286e62389dcb62aad5.res"
+
+[deps]
+
+source_file="res://Nathan/rp_nathan_animated_003_walking.fbx"
+dest_files=["res://.godot/imported/rp_nathan_animated_003_walking.fbx-a905823113b4a9286e62389dcb62aad5.res"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:RootNode/rp_nathan_animated_003_walking/rp_nathan_animated_003_walking_CTRL/Skeleton3D": {
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"rp_nathan_animated_003_walking_root","bone_map/Hips":&"rp_nathan_animated_003_walking_hip","bone_map/Spine":&"rp_nathan_animated_003_walking_spine_01","bone_map/Chest":&"rp_nathan_animated_003_walking_spine_02","bone_map/UpperChest":&"rp_nathan_animated_003_walking_spine_03","bone_map/Neck":&"rp_nathan_animated_003_walking_neck","bone_map/Head":&"rp_nathan_animated_003_walking_head","bone_map/LeftEye":&"rp_nathan_animated_003_walking_eye_l","bone_map/RightEye":&"rp_nathan_animated_003_walking_eye_r","bone_map/Jaw":&"rp_nathan_animated_003_walking_jaw","bone_map/LeftShoulder":&"rp_nathan_animated_003_walking_shoulder_l","bone_map/LeftUpperArm":&"rp_nathan_animated_003_walking_upperarm_l","bone_map/LeftLowerArm":&"rp_nathan_animated_003_walking_lowerarm_l","bone_map/LeftHand":&"rp_nathan_animated_003_walking_hand_l","bone_map/LeftThumbMetacarpal":&"rp_nathan_animated_003_walking_thumb_02_l","bone_map/LeftThumbProximal":&"rp_nathan_animated_003_walking_thumb_03_l","bone_map/LeftThumbDistal":&"rp_nathan_animated_003_walking_thumb_end_l","bone_map/LeftIndexProximal":&"rp_nathan_animated_003_walking_index_02_l","bone_map/LeftIndexIntermediate":&"rp_nathan_animated_003_walking_index_03_l","bone_map/LeftIndexDistal":&"rp_nathan_animated_003_walking_index_end_l","bone_map/LeftMiddleProximal":&"rp_nathan_animated_003_walking_middle_02_l","bone_map/LeftMiddleIntermediate":&"rp_nathan_animated_003_walking_middle_03_l","bone_map/LeftMiddleDistal":&"rp_nathan_animated_003_walking_middle_end_l","bone_map/LeftRingProximal":&"rp_nathan_animated_003_walking_ring_02_l","bone_map/LeftRingIntermediate":&"rp_nathan_animated_003_walking_ring_03_l","bone_map/LeftRingDistal":&"rp_nathan_animated_003_walking_ring_end_l","bone_map/LeftLittleProximal":&"rp_nathan_animated_003_walking_pinky_02_l","bone_map/LeftLittleIntermediate":&"rp_nathan_animated_003_walking_pinky_03_l","bone_map/LeftLittleDistal":&"rp_nathan_animated_003_walking_pinky_end_l","bone_map/RightShoulder":&"rp_nathan_animated_003_walking_shoulder_r","bone_map/RightUpperArm":&"rp_nathan_animated_003_walking_upperarm_r","bone_map/RightLowerArm":&"rp_nathan_animated_003_walking_lowerarm_r","bone_map/RightHand":&"rp_nathan_animated_003_walking_hand_r","bone_map/RightThumbMetacarpal":&"rp_nathan_animated_003_walking_thumb_02_r","bone_map/RightThumbProximal":&"rp_nathan_animated_003_walking_thumb_03_r","bone_map/RightThumbDistal":&"rp_nathan_animated_003_walking_thumb_end_r","bone_map/RightIndexProximal":&"rp_nathan_animated_003_walking_index_02_r","bone_map/RightIndexIntermediate":&"rp_nathan_animated_003_walking_index_03_r","bone_map/RightIndexDistal":&"rp_nathan_animated_003_walking_index_end_r","bone_map/RightMiddleProximal":&"rp_nathan_animated_003_walking_middle_02_r","bone_map/RightMiddleIntermediate":&"rp_nathan_animated_003_walking_middle_03_r","bone_map/RightMiddleDistal":&"rp_nathan_animated_003_walking_middle_end_r","bone_map/RightRingProximal":&"rp_nathan_animated_003_walking_ring_02_r","bone_map/RightRingIntermediate":&"rp_nathan_animated_003_walking_ring_03_r","bone_map/RightRingDistal":&"rp_nathan_animated_003_walking_ring_end_r","bone_map/RightLittleProximal":&"rp_nathan_animated_003_walking_pinky_02_r","bone_map/RightLittleIntermediate":&"rp_nathan_animated_003_walking_pinky_03_r","bone_map/RightLittleDistal":&"rp_nathan_animated_003_walking_pinky_end_r","bone_map/LeftUpperLeg":&"rp_nathan_animated_003_walking_upperleg_l","bone_map/LeftLowerLeg":&"rp_nathan_animated_003_walking_lowerleg_l","bone_map/LeftFoot":&"rp_nathan_animated_003_walking_foot_l","bone_map/LeftToes":&"rp_nathan_animated_003_walking_ball_l","bone_map/RightUpperLeg":&"rp_nathan_animated_003_walking_upperleg_r","bone_map/RightLowerLeg":&"rp_nathan_animated_003_walking_lowerleg_r","bone_map/RightFoot":&"rp_nathan_animated_003_walking_foot_r","bone_map/RightToes":&"rp_nathan_animated_003_walking_ball_r","script":null)
+
+}
+}
+}
+gltf/embedded_image_handling=1

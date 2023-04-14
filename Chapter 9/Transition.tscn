@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://csgjnlgjfn2re"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jyxw3"]
+
+[sub_resource type="Animation" id="Animation_xpwn4"]
+resource_name = "Expand"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1170, 670)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_btd2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1175, 670)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a1qaq"]
+resource_name = "Shrink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1175, 670), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xx1qt"]
+_data = {
+"Expand": SubResource("Animation_xpwn4"),
+"RESET": SubResource("Animation_btd2d"),
+"Shrink": SubResource("Animation_a1qaq")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xw5pp"]
+animation = &"Expand"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fc5yy"]
+animation = &"Shrink"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_lm3ww"]
+input_0/name = "Shrink"
+input_0/auto_advance = true
+input_0/reset = true
+input_1/name = "Expand"
+input_1/auto_advance = true
+input_1/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y06u6"]
+graph_offset = Vector2(-341.004, 139.921)
+nodes/Expand/node = SubResource("AnimationNodeAnimation_xw5pp")
+nodes/Expand/position = Vector2(-140, 280)
+nodes/Shrink/node = SubResource("AnimationNodeAnimation_fc5yy")
+nodes/Shrink/position = Vector2(-140, 140)
+nodes/Transition/node = SubResource("AnimationNodeTransition_lm3ww")
+nodes/Transition/position = Vector2(100, 140)
+node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"Shrink", &"Transition", 1, &"Expand"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="MeshInstance2D" parent="."]
+position = Vector2(580, 322)
+scale = Vector2(1175, 670)
+mesh = SubResource("BoxMesh_jyxw3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xx1qt")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_y06u6")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Transition/current_state = "Shrink"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
