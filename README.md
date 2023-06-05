@@ -27,12 +27,13 @@ alt="https://www.packtpub.com/" border="5" /></a>
 All of the code is organized into folders. For example, Chapter02.
 
 The code will look like the following:
+A block of code is set as follows:
 ```
-5  var value: int = 10: set = set_value, get = get_value
+5       var value: int = 10: set = set_value, get = get_value
 6
-7 func set_value(new_value: int) -> void:
-8      value = new_value
-9      print('setter', str(value))
+7      func set_value(new_value: int) -> void:
+8           value = new_value
+9           print('setter', str(value))
 
 ```
 
