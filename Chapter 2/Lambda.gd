@@ -11,7 +11,7 @@ func _ready():
 	var player_health = func(): print("Current health ", health)
 	player_health.call()
 	
-	button.pressed.connect(func(): print("Button was pressed"))
+	button.button_down.connect(func(): print("Button was pressed"))
 		
 	var button_released = func(): 
 		print("Button released")
