@@ -52,5 +52,9 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Godot Engine Game Development Projects [[Packt]](https://www.packtpub.com/product/godot-engine-game-development-projects/9781788831505?utm_source=github&utm_medium=repository&utm_campaign=9781788831505) [[Amazon]](https://www.amazon.com/dp/B079HZD1S7)
 
+## Errata 
+* Page 32 (code at line 14, step number 8):  **button.pressed.connect(func(): print("button was
+pressed"))** _should be_ **button.button_down.connect(func(): print("Button was pressed"))**
+
 ## Get to Know the Author
 **Jeff Johnson** is a game developer who started using Unity 4.0 in 2014 and released a couple of games on itch.io. In 2018, he created 999 Dev Studio. Toward the end of developing Escape from 51, he changed engines to Godot 3.0.2. He ported over almost the whole game to Godot from Unity. He released Escape from 51 on itch.io, as well as some mobile games on Google Play, all made with Godot.
